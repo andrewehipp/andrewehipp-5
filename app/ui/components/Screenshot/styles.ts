@@ -10,25 +10,32 @@ export const screenshot = css({
 export const desktop = css({
     gridColumn: { base: '1 / 4', sm: '1 / 3'},
     gridRow: '1 / 3',
-    opacity: 0,
-    scale: '0.99',
+})
+
+export const desktopContent = css({
+    opacity: 1,
+    scale: '1',
     transition: '300ms',
 
-    '.is-loaded &': {
-        opacity: 1,
-        scale: '1',
-    },
+    _starting: {
+        opacity: 0,
+        scale: '0.99',
+    }
 })
 
 export const mobile = css({
     gridColumn: { base: '2 / 3', sm: '2 / 4'},
     gridRow: '2 / 3',
-    opacity: 0,
-    scale: '0.9',
-    transition: '300ms 150ms',
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.25)',
+})
 
-    '.is-loaded &': {
-        opacity: 1,
-        scale: '1',
-    },
+export const mobileContent = css({
+    opacity: 1,
+    scale: '1',
+    transition: '300ms 300ms',
+
+    _starting: {
+        opacity: 0,
+        scale: '0.99',
+    }
 })

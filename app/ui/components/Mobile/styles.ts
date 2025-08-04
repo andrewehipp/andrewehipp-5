@@ -1,7 +1,6 @@
 import { css } from "@/styled-system/css";
 
 export const mobile = css({
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.25)',
     bg: '#000',
 });
 

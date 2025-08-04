@@ -36,6 +36,13 @@ export default defineConfig({
                 lg: "1200px",
                 xl: "1500px",
             },
+            keyframes: {
+                skeletonPulse: {
+                    '0%': { background: '#111' },
+                    '50%': { background: '#222' },
+                    '100%': { background: '#111' },
+                }
+            }
         },
     },
 

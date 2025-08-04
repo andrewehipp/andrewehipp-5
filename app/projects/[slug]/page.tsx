@@ -12,33 +12,41 @@ import client from "../../lib/utilities/apollo";
 import ProjectGrid from "@/app/ui/components/ProjectGrid";
 import Link from "next/link";
 import Card from "@/app/ui/components/Card";
-import { ProjectPageQuery, ProjectPageQueryVariables } from "@/__generated__/graphql";
+import { ProjectPageMetaQuery, ProjectPageMetaQueryVariables, ProjectPageQuery, ProjectPageQueryVariables } from "@/__generated__/graphql";
 
 type Props = {
     params: Promise<{ slug: string }>;
 };
 
-export async function generateMetadata(): Promise<Metadata> {
-    const { data } = await client.query({
+export async function generateMetadata(
+    { params }: Props,
+): Promise<Metadata> {
+    const { slug } = await params;
+    const { data } = await client.query<ProjectPageMetaQuery, ProjectPageMetaQueryVariables>({
         query: gql`
-            query ProjectCollection {
-                projectCollection(limit: 500) {
+            query ProjectPageMeta($slug: String) {
+                projectCollection(where: { slug_in: [$slug] }, limit: 1) {
                     items {
                         name
                         description
-                        slug
                     }
                 }
             }
         `,
+        variables: {
+            slug,
+        },
     });
 
-    return data.projectCollection.items.map(
-        ({ name, description }: { name: string; description: string }) => ({
-            title: name,
-            description,
-        }),
-    );
+    const {
+        name: projectName,
+        description: projectDescription,
+    } = data?.projectCollection?.items?.[0] || {};
+
+    return {
+        title: projectName,
+        description: projectDescription
+    }
 }
 
 export async function generateStaticParams() {

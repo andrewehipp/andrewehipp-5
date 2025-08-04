@@ -14,7 +14,7 @@ const sourceSans = Source_Sans_3({
 
 export const metadata: Metadata = {
     title: {
-        template: '%s | Andrew Hipp - Front End Developer',
+        template: '%s - Andrew Hipp - Front End Developer',
         // a default is required when creating a template
         default: 'Andrew Hipp - Front End Developer',
     },

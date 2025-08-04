@@ -154,7 +154,9 @@ export default async function ProjectPage({ params }: Props) {
     const relatedProjectsCollectionItems = relatedProjectsCollection?.items || []
 
     const projectIndex = relatedProjectsCollectionItems.findIndex((p) => p?.slug === slug);
-    const relatedProjects = projectIndex !== -1 ? relatedProjectsCollectionItems.slice(projectIndex + 1, projectIndex + 4) : undefined;
+    const relatedProjects = projectIndex !== -1
+        ? [...relatedProjectsCollectionItems, ...relatedProjectsCollectionItems].slice(projectIndex + 1, projectIndex + 4)
+        : undefined;
 
     return (
         <>

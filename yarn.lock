@@ -1189,6 +1189,13 @@
   resolved "https://registry.yarnpkg.com/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-15.4.4.tgz#74fd5c40515cf626344982c201c0567efccf0f4a"
   integrity sha512-SE5pYNbn/xZKMy1RE3pAs+4xD32OI4rY6mzJa4XUkp/ItZY+OMjIgilskmErt8ls/fVJ+Ihopi2QIeW6O3TrMw==
 
+"@next/third-parties@^15.4.5":
+  version "15.4.5"
+  resolved "https://registry.yarnpkg.com/@next/third-parties/-/third-parties-15.4.5.tgz#5224a630b1ed8c2caf704c49ae8d10f312e38fd9"
+  integrity sha512-R5k6b2y9NijeJX2fQNYOCd3dNOH1HmxlfT/TQt6PQzQkl9KZshJ0BCvb4QNC9XgIjAAhMmmMxuTfuymDd1xnpQ==
+  dependencies:
+    third-party-capital "1.0.20"
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.npmjs.org/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz"
@@ -6369,6 +6376,11 @@ table@6.9.0:
     slice-ansi "^4.0.0"
     string-width "^4.2.3"
     strip-ansi "^6.0.1"
+
+third-party-capital@1.0.20:
+  version "1.0.20"
+  resolved "https://registry.yarnpkg.com/third-party-capital/-/third-party-capital-1.0.20.tgz#e218a929a35bf4d2245da9addb8ab978d2f41685"
+  integrity sha512-oB7yIimd8SuGptespDAZnNkzIz+NWaJCu2RMsbs4Wmp9zSDUM8Nhi3s2OOcqYuv3mN4hitXc8DVx+LyUmbUDiA==
 
 through@^2.3.6, through@^2.3.8:
   version "2.3.8"

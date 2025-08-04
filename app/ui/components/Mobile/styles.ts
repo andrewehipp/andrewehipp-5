@@ -2,6 +2,7 @@ import { css } from "@/styled-system/css";
 
 export const mobile = css({
     bg: '#000',
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.25)',
 });
 
 export const inner = css({

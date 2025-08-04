@@ -27,8 +27,12 @@ const Screenshot = ({ screenshot }: ScreenshotProps) => {
 
             // Preload assets if they exist and aren't videos
             await Promise.all([
-                desktop?.url && desktop?.contentType !== 'video/mp4' ? imageLoaded(desktop.url) : undefined,
-                mobile?.url && mobile?.contentType !== 'video/mp4' ? imageLoaded(mobile.url) : undefined,
+                desktop?.url && desktop?.contentType !== "video/mp4"
+                    ? imageLoaded(desktop.url)
+                    : undefined,
+                mobile?.url && mobile?.contentType !== "video/mp4"
+                    ? imageLoaded(mobile.url)
+                    : undefined,
             ]);
 
             setIsLoaded(true);
@@ -40,33 +44,29 @@ const Screenshot = ({ screenshot }: ScreenshotProps) => {
     return (
         <div className={styles.screenshot}>
             <div className={styles.desktop}>
-                <div className={styles.desktopContent}>
-                    {isLoaded ? (
+                {isLoaded ? (
+                    <div className={styles.desktopContent}>
                         <Browser
                             title={screenshot?.name || ""}
                             asset={screenshot?.desktop}
                         />
-                    ) : (
-                        <Skeleton
-                            width={screenshot?.desktop?.width || 1}
-                            height={screenshot?.desktop?.height || 1}
-                        />
-                    )}
-                </div>
+                    </div>
+                ) : (
+                    <Skeleton
+                        className={styles.desktopSkeleton}
+                        width={screenshot?.desktop?.width || 1}
+                        height={screenshot?.desktop?.height || 1}
+                    />
+                )}
             </div>
 
             {screenshot?.mobile ? (
                 <div className={styles.mobile}>
-                    <div className={styles.mobileContent}>
-                        {isLoaded ? (
+                    {isLoaded ? (
+                        <div className={styles.mobileContent}>
                             <Mobile asset={screenshot?.mobile} />
-                        ) : (
-                            <Skeleton
-                                width={screenshot?.mobile?.width || 1}
-                                height={screenshot?.mobile?.height || 1}
-                            />
-                        )}
-                    </div>
+                        </div>
+                    ) : null}
                 </div>
             ) : null}
         </div>

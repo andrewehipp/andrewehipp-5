@@ -12,6 +12,10 @@ export const desktop = css({
     gridRow: '1 / 3',
 })
 
+export const desktopSkeleton = css({
+    scale: '0.97',
+})
+
 export const desktopContent = css({
     opacity: 1,
     scale: '1',
@@ -19,14 +23,13 @@ export const desktopContent = css({
 
     _starting: {
         opacity: 0,
-        scale: '0.99',
+        scale: '0.97',
     }
 })
 
 export const mobile = css({
     gridColumn: { base: '2 / 3', sm: '2 / 4'},
     gridRow: '2 / 3',
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.25)',
 })
 
 export const mobileContent = css({

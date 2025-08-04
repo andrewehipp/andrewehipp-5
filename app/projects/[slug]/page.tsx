@@ -179,7 +179,9 @@ export default async function ProjectPage({ params }: Props) {
                                             </TextAppear>
                                         </>
                                     )}
-                                    <Markdown>{screenshot?.description}</Markdown>
+                                    <TextAppear transition="300ms 600ms">
+                                        <Markdown>{screenshot?.description}</Markdown>
+                                    </TextAppear>
                                 </>
                             }
                             contentChildren={(

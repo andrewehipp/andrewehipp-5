@@ -16,6 +16,7 @@
     "@apollo/client": "^3.13.8",
     "@next/third-parties": "^15.4.5",
     "@types/imagesloaded": "^4.1.7",
+    "build": "^0.1.4",
     "eslint-config-prettier": "^10.1.8",
     "graphql": "^16.11.0",
     "imagesloaded": "^5.0.0",
@@ -26,7 +27,8 @@
     "react-dom": "19.1.0",
     "react-markdown": "^10.1.0",
     "rehype-raw": "^7.0.0",
-    "remark-gfm": "^4.0.1"
+    "remark-gfm": "^4.0.1",
+    "yarn": "^1.22.22"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

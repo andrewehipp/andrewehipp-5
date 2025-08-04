@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 
 import Video from "../Video";
 
@@ -44,11 +43,10 @@ const Browser = ({ title, asset }: BrowserProps) => {
                         <source src={url} type={asset.contentType} />
                     </Video>
                 ) : (
-                    <Image
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
                         src={url}
                         alt={title}
-                        width={1000}
-                        height={asset?.height || 1000}
                         className={styles.image}
                     />
                 )}

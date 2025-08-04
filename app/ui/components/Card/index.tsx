@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from 'next/image';
 
 import { aspectRatio } from "@/styled-system/patterns";
 import { cx } from "@/styled-system/css";
@@ -77,12 +76,11 @@ const Card = ({ project, delay = 0 }: CardProps) => {
             >
                 <div className={aspectRatio({ ratio: 16 / 9 })}>
                     {project?.fullThumbnail?.url ? (
-                        <Image
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
                             src={project?.fullThumbnail?.url}
                             alt={project?.name || ""}
                             className={styles.image}
-                            width={project?.fullThumbnail?.width || 520}
-                            height={project?.fullThumbnail?.height || 292}
                             loading="lazy"
                         />
                     ) : null}

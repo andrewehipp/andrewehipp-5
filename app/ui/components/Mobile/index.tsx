@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 
 import { ProjectPageQuery } from "@/__generated__/graphql";
 
@@ -34,10 +33,9 @@ const Mobile = ({ asset }: MobileProps) => {
                             <source src={url} type="video/mp4" />
                         </Video>
                     ) : (
-                        <Image
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
                             className={styles.image}
-                            width={asset?.width || 210}
-                            height={asset?.height || 375}
                             src={url}
                             alt=""
                         />

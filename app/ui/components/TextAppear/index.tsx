@@ -8,7 +8,7 @@ export type TextAppearProps = {
 };
 
 const TextAppear = ({ children, transition }: TextAppearProps) => (
-    <div className={styles.text} style={{ transition }}>{children}</div>
+    <span className={styles.text} style={{ transition }}>{children}</span>
 );
 
 export default TextAppear;

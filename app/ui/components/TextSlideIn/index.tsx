@@ -8,9 +8,9 @@ export type TextSlideInProps = {
 };
 
 const TextSlideIn = ({ children, transition }: TextSlideInProps) => (
-    <div className={styles.textWrap}>
-        <div className={styles.text} style={{ transition }}>{children}</div>
-    </div>
+    <span className={styles.textWrap}>
+        <span className={styles.text} style={{ transition }}>{children}</span>
+    </span>
 );
 
 export default TextSlideIn;

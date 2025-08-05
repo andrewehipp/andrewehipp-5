@@ -5,6 +5,7 @@ export const screenshot = css({
     gridTemplateColumns: { base: '1fr 130px 20px', sm: '1fr 190px 20px'},
     gridAutoRows: { base: '150px 1fr', sm: '200px 1fr'},
     alignItems: 'flex-start',
+    mr: { lg: '-20px' }
 })
 
 export const desktop = css({

@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import { gql } from "@apollo/client";
 
 import Layer from "@/app/ui/components/Layer";
 import Markdown from "@/app/ui/components/Markdown";
@@ -12,56 +11,44 @@ import client from "../../lib/utilities/apollo";
 import ProjectGrid from "@/app/ui/components/ProjectGrid";
 import Link from "next/link";
 import Card from "@/app/ui/components/Card";
-import { ProjectPageMetaQuery, ProjectPageMetaQueryVariables, ProjectPageQuery, ProjectPageQueryVariables } from "@/__generated__/graphql";
+import {
+    ProjectPageMetaQuery,
+    ProjectPageMetaQueryVariables,
+    ProjectPageQuery,
+    ProjectPageQueryVariables,
+} from "@/__generated__/graphql";
+import { GET_PROJECT_PAGE_META } from "@/app/lib/queries/getProjectPageMeta";
+import { GET_PROJECT_COLLECTION } from "@/app/lib/queries/getProjectCollection";
+import { GET_PROJECT_PAGE } from "@/app/lib/queries/getProjectPage";
 
 type Props = {
     params: Promise<{ slug: string }>;
 };
 
-export async function generateMetadata(
-    { params }: Props,
-): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { slug } = await params;
-    const { data } = await client.query<ProjectPageMetaQuery, ProjectPageMetaQueryVariables>({
-        query: gql`
-            query ProjectPageMeta($slug: String) {
-                projectCollection(where: { slug_in: [$slug] }, limit: 1) {
-                    items {
-                        name
-                        description
-                    }
-                }
-            }
-        `,
+    const { data } = await client.query<
+        ProjectPageMetaQuery,
+        ProjectPageMetaQueryVariables
+    >({
+        query: GET_PROJECT_PAGE_META,
         variables: {
             slug,
         },
     });
 
-    const {
-        name: projectName,
-        description: projectDescription,
-    } = data?.projectCollection?.items?.[0] || {};
+    const { name: projectName, description: projectDescription } =
+        data?.projectCollection?.items?.[0] || {};
 
     return {
         title: projectName,
-        description: projectDescription
-    }
+        description: projectDescription,
+    };
 }
 
 export async function generateStaticParams() {
     const { data } = await client.query({
-        query: gql`
-            query ProjectCollection {
-                projectCollection(limit: 500) {
-                    items {
-                        name
-                        description
-                        slug
-                    }
-                }
-            }
-        `,
+        query: GET_PROJECT_COLLECTION,
     });
 
     return data.projectCollection.items.map(({ slug }: { slug: string }) => ({
@@ -71,68 +58,11 @@ export async function generateStaticParams() {
 
 export default async function ProjectPage({ params }: Props) {
     const { slug } = await params;
-    const { data } = await client.query<ProjectPageQuery, ProjectPageQueryVariables>({
-        query: gql`
-            query ProjectPage($slug: String) {
-                projectCollection(where: { slug_in: [$slug] }, limit: 1) {
-                    items {
-                        _id
-                        name
-                        client
-                        description
-                        screenshotsCollection {
-                            items {
-                                _id
-                                name
-                                description
-                                mobile {
-                                    url(
-                                        transform: {
-                                            width: 210
-                                            height: 375
-                                            resizeStrategy: FILL
-                                            resizeFocus: TOP
-                                            format: WEBP
-                                        }
-                                    )
-                                    width
-                                    height
-                                    contentType
-                                }
-                                desktop {
-                                    url(
-                                        transform: { width: 1000, format: WEBP }
-                                    )
-                                    width
-                                    height
-                                    contentType
-                                }
-                            }
-                        }
-                    }
-                }
-
-                projectListingCollection(
-                    where: { name_in: ["Home"] }
-                    limit: 1
-                ) {
-                    items {
-                        projectsCollection {
-                            items {
-                                slug
-                                client
-                                name
-                                fullThumbnail {
-                                    url(transform: { width: 530, format: WEBP })
-                                    width
-                                    height
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        `,
+    const { data } = await client.query<
+        ProjectPageQuery,
+        ProjectPageQueryVariables
+    >({
+        query: GET_PROJECT_PAGE,
         variables: {
             slug,
         },
@@ -147,40 +77,44 @@ export default async function ProjectPage({ params }: Props) {
 
     const screenshots = screenshotsCollection?.items || [];
 
-    const {
-        projectsCollection: relatedProjectsCollection
-    } = data?.projectListingCollection?.items?.[0] || {};
+    const { projectsCollection: relatedProjectsCollection } =
+        data?.projectListingCollection?.items?.[0] || {};
 
-    const relatedProjectsCollectionItems = relatedProjectsCollection?.items || []
+    const relatedProjectsCollectionItems =
+        relatedProjectsCollection?.items || [];
 
-    const projectIndex = relatedProjectsCollectionItems.findIndex((p) => p?.slug === slug);
-    const relatedProjects = projectIndex !== -1
-        ? [...relatedProjectsCollectionItems, ...relatedProjectsCollectionItems].slice(projectIndex + 1, projectIndex + 4)
-        : undefined;
+    const projectIndex = relatedProjectsCollectionItems.findIndex(
+        (p) => p?.slug === slug,
+    );
+    const relatedProjects =
+        projectIndex !== -1
+            ? [
+                  ...relatedProjectsCollectionItems,
+                  ...relatedProjectsCollectionItems,
+              ].slice(projectIndex + 1, projectIndex + 4)
+            : undefined;
 
     return (
         <>
             <Layer>
-                {screenshots.map(
-                    (
-                        screenshot,
-                        screenshotIndex,
-                    ) => {
-                        if (!screenshot) { return null; }
-                        return (
+                {screenshots.map((screenshot, screenshotIndex) => {
+                    if (!screenshot) {
+                        return null;
+                    }
+                    return (
                         <Layout
                             key={screenshot?._id}
                             contentProps={{
                                 bleedTop:
-                                    screenshotIndex === 0 ? 'bleed' : undefined,
+                                    screenshotIndex === 0 ? "bleed" : undefined,
                             }}
                             sidebarChildren={
                                 <>
                                     {screenshotIndex === 0 && (
                                         <>
                                             <ProjectHeader
-                                                name={projectName || ''}
-                                                client={projectClient || ''}
+                                                name={projectName || ""}
+                                                client={projectClient || ""}
                                             />
                                             <TextAppear transition="300ms 600ms">
                                                 <Markdown>
@@ -190,30 +124,30 @@ export default async function ProjectPage({ params }: Props) {
                                         </>
                                     )}
                                     <TextAppear transition="300ms 600ms">
-                                        <Markdown>{screenshot?.description}</Markdown>
+                                        <Markdown>
+                                            {screenshot?.description}
+                                        </Markdown>
                                     </TextAppear>
                                 </>
                             }
-                            contentChildren={(
-                                <ScreenShot
-                                    screenshot={screenshot}
-                                />
-                            )}
+                            contentChildren={
+                                <ScreenShot screenshot={screenshot} />
+                            }
                         />
-                    )}
-                )}
+                    );
+                })}
             </Layer>
 
             {relatedProjects ? (
                 <Layer>
                     <Layout
                         contentProps={{
-                            bleedBottom: 'bleed',
+                            bleedBottom: "bleed",
                         }}
                         contentChildren={
                             <ProjectGrid
                                 items={relatedProjects}
-                                renderItem={project => (
+                                renderItem={(project) => (
                                     <Link
                                         key={project?.slug}
                                         href={`/projects/${project?.slug}`}
@@ -227,5 +161,5 @@ export default async function ProjectPage({ params }: Props) {
                 </Layer>
             ) : null}
         </>
-    )
+    );
 }

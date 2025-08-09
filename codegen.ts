@@ -7,7 +7,7 @@ const uri = `https://graphql.contentful.com/content/v1/spaces/${process.env.NEXT
 
 const config: CodegenConfig = {
     schema: uri,
-    documents: ["app/**/*.tsx"],
+    documents: ["app/**/*.ts"],
     generates: {
         "./__generated__/": {
             preset: "client",

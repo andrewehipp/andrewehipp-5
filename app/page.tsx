@@ -1,15 +1,15 @@
 import client from "./lib/utilities/apollo";
 import Link from "next/link";
-import { gql } from "@apollo/client";
 
 import Layout from "./ui/components/Layout";
 import About from "./ui/components/About";
 import ProjectGrid from "./ui/components/ProjectGrid";
 import Card from "./ui/components/Card";
 
-import { HomePageQuery, HomePageQueryVariables } from '@/__generated__/graphql';
+import { HomePageQuery, HomePageQueryVariables } from "@/__generated__/graphql";
 
 import { LayoutGridItemVariants } from "./ui/components/ProjectGrid/styles";
+import { GET_HOME_PAGE } from "./lib/queries/getHomePage";
 
 const layout: LayoutGridItemVariants = {
     0: { width: "wide" },
@@ -21,43 +21,23 @@ const layout: LayoutGridItemVariants = {
 
 export default async function Home() {
     const { data } = await client.query<HomePageQuery, HomePageQueryVariables>({
-        query: gql(`
-            query HomePage {
-                projectListingCollection(limit: 1) {
-                    items {
-                        about
-                        projectsCollection {
-                            items {
-                                slug
-                                client
-                                name
-                                fullThumbnail {
-                                    url(transform: { width: 530, format: WEBP })
-                                    width
-                                    height
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        `),
+        query: GET_HOME_PAGE,
     });
 
-    const {
-        about,
-        projectsCollection,
-    } = data?.projectListingCollection?.items?.[0] || {}
+    const { about, projectsCollection } =
+        data?.projectListingCollection?.items?.[0] || {};
 
-    const projects = projectsCollection?.items
-    if (!projects) { return; }
+    const projects = projectsCollection?.items;
+    if (!projects) {
+        return;
+    }
     return (
         <Layout
             contentProps={{
                 bleedBottom: "bleed",
                 bleedTop: "bleed",
             }}
-            sidebarChildren={<About body={about || ''} />}
+            sidebarChildren={<About body={about || ""} />}
             contentChildren={
                 <ProjectGrid
                     items={projects}

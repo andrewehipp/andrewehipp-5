@@ -6,7 +6,7 @@ import About from "./ui/components/About";
 import ProjectGrid from "./ui/components/ProjectGrid";
 import Card from "./ui/components/Card";
 
-import { HomePageQuery } from "@/__generated__/graphql";
+import { HomePageQuery, HomePageQueryVariables } from "@/__generated__/graphql";
 
 import { LayoutGridItemVariants } from "./ui/components/ProjectGrid/styles";
 import { GET_HOME_PAGE } from "./lib/queries/getHomePage";

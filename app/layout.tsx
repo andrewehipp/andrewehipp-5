@@ -8,7 +8,7 @@ import Footer from "./ui/components/Footer";
 import Container from "./ui/components/Container";
 
 const sourceSans = Source_Sans_3({
-    variable: 5,
+    variable: '--font-source-sans',
     subsets: ["latin"],
 });
 

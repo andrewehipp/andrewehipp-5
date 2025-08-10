@@ -6,7 +6,7 @@ import About from "./ui/components/About";
 import ProjectGrid from "./ui/components/ProjectGrid";
 import Card from "./ui/components/Card";
 
-import { HomePageQuery, HomePageQueryVariables } from "@/__generated__/graphql";
+import { HomePageQuery } from "@/__generated__/graphql";
 
 import { LayoutGridItemVariants } from "./ui/components/ProjectGrid/styles";
 import { GET_HOME_PAGE } from "./lib/queries/getHomePage";
@@ -19,7 +19,7 @@ const layout: LayoutGridItemVariants = {
     13: { width: "wide" },
 };
 
-export default async function Home() {
+export default async fu nction Home() {
     const { data } = await client.query<HomePageQuery, HomePageQueryVariables>({
         query: GET_HOME_PAGE,
     });

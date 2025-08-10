@@ -19,7 +19,7 @@ const layout: LayoutGridItemVariants = {
     13: { width: "wide" },
 };
 
-export default async fu nction Home() {
+export default async function Home() {
     const { data } = await client.query<HomePageQuery, HomePageQueryVariables>({
         query: GET_HOME_PAGE,
     });

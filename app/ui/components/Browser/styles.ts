@@ -1,4 +1,4 @@
-import { css } from '@/styled-system/css'
+import { css } from '@/styled-system/css';
 
 export const browser = css({
     bg: '#000',
@@ -13,7 +13,7 @@ export const browser = css({
         left: '1px',
         right: '1px',
     },
-})
+});
 
 export const title = css({
     display: 'block',
@@ -22,10 +22,10 @@ export const title = css({
     color: '#fff/70',
     lineHeight: '26px',
     width: '100%',
-})
+});
 
 export const image = css({
     display: 'block',
     mb: 0,
     width: '100%',
-})
+});

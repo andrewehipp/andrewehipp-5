@@ -1,4 +1,4 @@
-import { css } from "@/styled-system/css";
+import { css } from '@/styled-system/css';
 
 export const mobile = css({
     bg: '#000',
@@ -6,8 +6,8 @@ export const mobile = css({
 });
 
 export const inner = css({
-    pt: 60 / 375 * 100 + '%',
-    pb: 40 / 375 * 100 + '%',
+    pt: (60 / 375) * 100 + '%',
+    pb: (40 / 375) * 100 + '%',
 });
 
 export const viewer = css({

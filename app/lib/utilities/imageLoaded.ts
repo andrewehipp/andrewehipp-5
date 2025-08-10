@@ -5,14 +5,13 @@ const imageLoaded = (url: string) => {
 
             image.onload = () => {
                 res(image);
-            }
+            };
 
             image.src = url;
         } catch (error) {
-            rej(error)
+            rej(error);
         }
-    })
-
-}
+    });
+};
 
 export default imageLoaded;

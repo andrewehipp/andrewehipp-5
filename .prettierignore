@@ -1,0 +1,4 @@
+.prettierignore
+public
+out
+__generated__

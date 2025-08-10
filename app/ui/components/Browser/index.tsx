@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import React from "react";
+import React from 'react';
 
-import Video from "../Video";
+import Video from '../Video';
 
-import * as styles from "./styles";
-import { ProjectPageQuery } from "@/__generated__/graphql";
+import * as styles from './styles';
+import { ProjectPageQuery } from '@/__generated__/graphql';
 
 export type BrowserProps = {
     title: string;
@@ -13,18 +13,18 @@ export type BrowserProps = {
         NonNullable<
             NonNullable<
                 NonNullable<
-                    ProjectPageQuery["projectCollection"]
-                >["items"][number]
-            >["screenshotsCollection"]
-        >["items"][number]
-    >["desktop"];
+                    ProjectPageQuery['projectCollection']
+                >['items'][number]
+            >['screenshotsCollection']
+        >['items'][number]
+    >['desktop'];
 };
 
 const Browser = ({ title, asset }: BrowserProps) => {
     if (!asset) {
         return null;
     }
-    const url = asset.url || "";
+    const url = asset.url || '';
 
     return (
         <div className={styles.browser}>
@@ -33,22 +33,18 @@ const Browser = ({ title, asset }: BrowserProps) => {
             <div
                 style={{
                     aspectRatio:
-                        asset.contentType === "video/mp4"
-                            ? "1440 / 900"
+                        asset.contentType === 'video/mp4'
+                            ? '1440 / 900'
                             : `${asset.width} / ${asset.height}`,
                 }}
             >
-                {asset.contentType === "video/mp4" ? (
+                {asset.contentType === 'video/mp4' ? (
                     <Video loop muted playsInline>
                         <source src={url} type={asset.contentType} />
                     </Video>
                 ) : (
                     // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                        src={url}
-                        alt={title}
-                        className={styles.image}
-                    />
+                    <img src={url} alt={title} className={styles.image} />
                 )}
             </div>
         </div>

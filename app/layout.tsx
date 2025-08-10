@@ -1,24 +1,24 @@
-import "./globals.css";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import type { Metadata } from "next";
-import { Source_Sans_3 } from "next/font/google";
+import './globals.css';
+import { GoogleAnalytics } from '@next/third-parties/google';
+import type { Metadata } from 'next';
+import { Source_Sans_3 } from 'next/font/google';
 
-import Header from "./ui/components/Header";
-import Footer from "./ui/components/Footer";
-import Container from "./ui/components/Container";
+import Header from './ui/components/Header';
+import Footer from './ui/components/Footer';
+import Container from './ui/components/Container';
 
 const sourceSans = Source_Sans_3({
     variable: '--font-source-sans',
-    subsets: ["latin"],
+    subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
     title: {
-        template: "%s - Andrew Hipp - Front End Developer",
+        template: '%s - Andrew Hipp - Front End Developer',
         // a default is required when creating a template
-        default: "Andrew Hipp - Front End Developer",
+        default: 'Andrew Hipp - Front End Developer',
     },
-    description: "Front End Developer Living in Southern California",
+    description: 'Front End Developer Living in Southern California',
 };
 
 export default function RootLayout({

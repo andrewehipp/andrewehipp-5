@@ -1,42 +1,44 @@
 {
-  "name": "andrewehipp-5",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "prepare": "husky && panda codegen",
-    "generate": "graphql-codegen",
-    "predev": "yarn generate",
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "prestart": "yarn generate",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@apollo/client": "^3.13.8",
-    "@next/third-parties": "^15.4.5",
-    "graphql": "^16.11.0",
-    "next": "15.4.4",
-    "normalize.css": "^8.0.1",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "react-markdown": "^10.1.0",
-    "rehype-raw": "^7.0.0",
-    "remark-gfm": "^4.0.1"
-  },
-  "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@graphql-codegen/cli": "^5.0.7",
-    "@pandacss/dev": "^0.54.0",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "dotenv": "^17.2.1",
-    "eslint": "^9",
-    "eslint-config-next": "15.4.4",
-    "eslint-config-prettier": "^10.1.8",
-    "husky": "^9.1.7",
-    "lint-staged": "^16.1.5",
-    "typescript": "^5.8.3"
-  }
+    "name": "andrewehipp-5",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "prepare": "husky && panda codegen",
+        "generate": "graphql-codegen",
+        "predev": "yarn generate",
+        "dev": "next dev --turbopack",
+        "build": "next build",
+        "prestart": "yarn generate",
+        "start": "next start",
+        "lint": "next lint --fix",
+        "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
+    },
+    "dependencies": {
+        "@apollo/client": "^3.13.8",
+        "@next/third-parties": "^15.4.5",
+        "eslint-plugin-prettier": "^5.5.4",
+        "graphql": "^16.11.0",
+        "next": "15.4.4",
+        "normalize.css": "^8.0.1",
+        "react": "19.1.0",
+        "react-dom": "19.1.0",
+        "react-markdown": "^10.1.0",
+        "rehype-raw": "^7.0.0",
+        "remark-gfm": "^4.0.1"
+    },
+    "devDependencies": {
+        "@eslint/eslintrc": "^3",
+        "@graphql-codegen/cli": "^5.0.7",
+        "@pandacss/dev": "^0.54.0",
+        "@types/node": "^20",
+        "@types/react": "^19",
+        "@types/react-dom": "^19",
+        "dotenv": "^17.2.1",
+        "eslint": "^9",
+        "eslint-config-next": "15.4.4",
+        "eslint-config-prettier": "^10.1.8",
+        "husky": "^9.1.7",
+        "lint-staged": "^16.1.5",
+        "typescript": "^5.8.3"
+    }
 }

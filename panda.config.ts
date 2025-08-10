@@ -1,11 +1,11 @@
-import { defineConfig } from "@pandacss/dev";
+import { defineConfig } from '@pandacss/dev';
 
 export default defineConfig({
     // Whether to use css reset
     preflight: true,
 
     // Where to look for your css declarations
-    include: ["./app/**/*.{ts,tsx,js,jsx}"],
+    include: ['./app/**/*.{ts,tsx,js,jsx}'],
 
     // Files to exclude
     exclude: [],
@@ -15,34 +15,34 @@ export default defineConfig({
         extend: {
             tokens: {
                 fonts: {
-                    marketing: { value: "Source Sans Pro" },
+                    marketing: { value: 'Source Sans Pro' },
                 },
                 colors: {
-                    green: { value: "#69cd00" },
-                    red: { value: "#e43700" },
-                    purple: { value: "#870295" },
-                    body: { value: "#303933" },
+                    green: { value: '#69cd00' },
+                    red: { value: '#e43700' },
+                    purple: { value: '#870295' },
+                    body: { value: '#303933' },
                 },
                 gradients: {
                     simple: {
-                        value: "linear-gradient(60deg, var(--colors-green) 33%, var(--colors-red) 60%, var(--colors-purple) 100%)",
+                        value: 'linear-gradient(60deg, var(--colors-green) 33%, var(--colors-red) 60%, var(--colors-purple) 100%)',
                     },
                 },
             },
             breakpoints: {
-                xs: "480px",
-                sm: "768px",
-                md: "1024px",
-                lg: "1200px",
-                xl: "1500px",
+                xs: '480px',
+                sm: '768px',
+                md: '1024px',
+                lg: '1200px',
+                xl: '1500px',
             },
             keyframes: {
                 skeletonPulse: {
                     '0%': { background: '#111' },
                     '50%': { background: '#222' },
                     '100%': { background: '#111' },
-                }
-            }
+                },
+            },
         },
     },
 
@@ -53,16 +53,17 @@ export default defineConfig({
                 values: 'string',
                 transform(value) {
                     const [min, max] = value.split(' ');
-                    const vw = Number(max.replace('px', '')) / 1500 * 100 + 'vw';
+                    const vw =
+                        (Number(max.replace('px', '')) / 1500) * 100 + 'vw';
 
                     return {
-                        fontSize: `clamp(${min}, ${vw}, ${max})`
-                    }
-                }
-            }
-        }
+                        fontSize: `clamp(${min}, ${vw}, ${max})`,
+                    };
+                },
+            },
+        },
     },
 
     // The output directory for your css system
-    outdir: "styled-system",
+    outdir: 'styled-system',
 });

@@ -1,4 +1,4 @@
-import { css, cva, type RecipeVariantProps } from '@/styled-system/css'
+import { css, cva, type RecipeVariantProps } from '@/styled-system/css';
 
 export const layout = css({
     display: 'grid',
@@ -12,19 +12,19 @@ export const content = cva({
         bleedTop: {
             bleed: {
                 mt: { sm: '-130px' },
-            }
+            },
         },
         bleedBottom: {
             bleed: {
                 mb: '-75px',
-            }
-        }
+            },
+        },
     },
 });
 
 export const aside = css({
     mt: { sm: '50px' },
     position: { sm: 'relative' },
-})
+});
 
 export type ContentVariants = RecipeVariantProps<typeof content>;

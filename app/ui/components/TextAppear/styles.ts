@@ -1,4 +1,4 @@
-import { css } from '@/styled-system/css'
+import { css } from '@/styled-system/css';
 
 export const text = css({
     display: 'block',
@@ -7,5 +7,5 @@ export const text = css({
     transition: '300ms',
     _starting: {
         opacity: 0,
-    }
+    },
 });

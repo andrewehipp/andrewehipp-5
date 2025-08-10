@@ -4,14 +4,14 @@ const Particle = function (width, height, index, count) {
     this.canvasWidth = width;
     this.canvasHeight = height;
 
-    this.x = ((width * index) / count) - 200;
+    this.x = (width * index) / count - 200;
     this.y = -(height * 0.5);
 
     this.dx = (Math.random() - 0.5) * 0.2;
     this.dy = (Math.random() - 0.5) * 0.2;
 
     this.size = Math.max(height * 2, 300);
-    this.rotate = (360 * numberInSeries) * Math.random();
+    this.rotate = 360 * numberInSeries * Math.random();
 };
 
 Particle.prototype.update = function () {
@@ -54,7 +54,6 @@ Particle.prototype.draw = function (ctx) {
     ctx.restore();
 };
 
-
 const ParticleEffect = function (selector) {
     this.canvas = selector;
 
@@ -72,10 +71,12 @@ const ParticleEffect = function (selector) {
     this.ctx.fillStyle = '#fff';
     this.ctx.lineWidth = 1;
     this.ctx.strokeStyle = '#fff';
-    this.ctx.globalAlpha = (Math.random() * 0.2) + 0.1;
+    this.ctx.globalAlpha = Math.random() * 0.2 + 0.1;
 
     for (let i = 0; i < this.count; i++) {
-        this.particles.push(new Particle(this.width, this.height, i, this.count));
+        this.particles.push(
+            new Particle(this.width, this.height, i, this.count)
+        );
     }
 };
 

@@ -7,9 +7,7 @@ export type LayerProps = {
 } & React.ComponentPropsWithoutRef<'div'>;
 
 const Layer = ({ children }: LayerProps) => (
-    <div className={styles.layer}>
-        {children}
-    </div>
+    <div className={styles.layer}>{children}</div>
 );
 
 export default Layer;

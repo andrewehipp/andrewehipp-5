@@ -1,22 +1,22 @@
-import client from "./lib/utilities/apollo";
-import Link from "next/link";
+import client from './lib/utilities/apollo';
+import Link from 'next/link';
 
-import Layout from "./ui/components/Layout";
-import About from "./ui/components/About";
-import ProjectGrid from "./ui/components/ProjectGrid";
-import Card from "./ui/components/Card";
+import Layout from './ui/components/Layout';
+import About from './ui/components/About';
+import ProjectGrid from './ui/components/ProjectGrid';
+import Card from './ui/components/Card';
 
-import { HomePageQuery, HomePageQueryVariables } from "@/__generated__/graphql";
+import { HomePageQuery, HomePageQueryVariables } from '@/__generated__/graphql';
 
-import { LayoutGridItemVariants } from "./ui/components/ProjectGrid/styles";
-import { GET_HOME_PAGE } from "./lib/queries/getHomePage";
+import { LayoutGridItemVariants } from './ui/components/ProjectGrid/styles';
+import { GET_HOME_PAGE } from './lib/queries/getHomePage';
 
 const layout: LayoutGridItemVariants = {
-    0: { width: "wide" },
-    1: { align: "alignBottom" },
-    6: { width: "wide" },
-    7: { width: "wide" },
-    13: { width: "wide" },
+    0: { width: 'wide' },
+    1: { align: 'alignBottom' },
+    6: { width: 'wide' },
+    7: { width: 'wide' },
+    13: { width: 'wide' },
 };
 
 export default async function Home() {
@@ -34,10 +34,10 @@ export default async function Home() {
     return (
         <Layout
             contentProps={{
-                bleedBottom: "bleed",
-                bleedTop: "bleed",
+                bleedBottom: 'bleed',
+                bleedTop: 'bleed',
             }}
-            sidebarChildren={<About body={about || ""} />}
+            sidebarChildren={<About body={about || ''} />}
             contentChildren={
                 <ProjectGrid
                     items={projects}

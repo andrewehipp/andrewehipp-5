@@ -5,7 +5,6 @@ export const uri = `https://graphql.contentful.com/content/v1/spaces/${process.e
 const client = new ApolloClient({
     uri,
     cache: new InMemoryCache(),
-  });
-
+});
 
 export default client;

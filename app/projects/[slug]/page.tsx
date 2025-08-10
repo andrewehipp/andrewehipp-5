@@ -1,25 +1,25 @@
-import { Metadata } from "next";
+import { Metadata } from 'next';
 
-import Layer from "@/app/ui/components/Layer";
-import Markdown from "@/app/ui/components/Markdown";
-import Layout from "@/app/ui/components/Layout";
-import ProjectHeader from "@/app/ui/components/ProjectHeader";
-import TextAppear from "@/app/ui/components/TextAppear";
-import ScreenShot from "@/app/ui/components/Screenshot";
+import Layer from '@/app/ui/components/Layer';
+import Markdown from '@/app/ui/components/Markdown';
+import Layout from '@/app/ui/components/Layout';
+import ProjectHeader from '@/app/ui/components/ProjectHeader';
+import TextAppear from '@/app/ui/components/TextAppear';
+import ScreenShot from '@/app/ui/components/Screenshot';
 
-import client from "../../lib/utilities/apollo";
-import ProjectGrid from "@/app/ui/components/ProjectGrid";
-import Link from "next/link";
-import Card from "@/app/ui/components/Card";
+import client from '../../lib/utilities/apollo';
+import ProjectGrid from '@/app/ui/components/ProjectGrid';
+import Link from 'next/link';
+import Card from '@/app/ui/components/Card';
 import {
     ProjectPageMetaQuery,
     ProjectPageMetaQueryVariables,
     ProjectPageQuery,
     ProjectPageQueryVariables,
-} from "@/__generated__/graphql";
-import { GET_PROJECT_PAGE_META } from "@/app/lib/queries/getProjectPageMeta";
-import { GET_PROJECT_COLLECTION } from "@/app/lib/queries/getProjectCollection";
-import { GET_PROJECT_PAGE } from "@/app/lib/queries/getProjectPage";
+} from '@/__generated__/graphql';
+import { GET_PROJECT_PAGE_META } from '@/app/lib/queries/getProjectPageMeta';
+import { GET_PROJECT_COLLECTION } from '@/app/lib/queries/getProjectCollection';
+import { GET_PROJECT_PAGE } from '@/app/lib/queries/getProjectPage';
 
 type Props = {
     params: Promise<{ slug: string }>;
@@ -84,7 +84,7 @@ export default async function ProjectPage({ params }: Props) {
         relatedProjectsCollection?.items || [];
 
     const projectIndex = relatedProjectsCollectionItems.findIndex(
-        (p) => p?.slug === slug,
+        (p) => p?.slug === slug
     );
     const relatedProjects =
         projectIndex !== -1
@@ -106,15 +106,15 @@ export default async function ProjectPage({ params }: Props) {
                             key={screenshot?._id}
                             contentProps={{
                                 bleedTop:
-                                    screenshotIndex === 0 ? "bleed" : undefined,
+                                    screenshotIndex === 0 ? 'bleed' : undefined,
                             }}
                             sidebarChildren={
                                 <>
                                     {screenshotIndex === 0 && (
                                         <>
                                             <ProjectHeader
-                                                name={projectName || ""}
-                                                client={projectClient || ""}
+                                                name={projectName || ''}
+                                                client={projectClient || ''}
                                             />
                                             <TextAppear transition="300ms 600ms">
                                                 <Markdown>
@@ -142,7 +142,7 @@ export default async function ProjectPage({ params }: Props) {
                 <Layer>
                     <Layout
                         contentProps={{
-                            bleedBottom: "bleed",
+                            bleedBottom: 'bleed',
                         }}
                         contentChildren={
                             <ProjectGrid

@@ -1,8 +1,6 @@
-import { css } from '@/styled-system/css'
+import { css } from '@/styled-system/css';
 
-export const card = css({
-});
-
+export const card = css({});
 
 export const content = css({
     overflow: 'hidden',
@@ -37,7 +35,7 @@ export const image = css({
 
     _groupHover: {
         scale: '1.025',
-    }
+    },
 });
 
 export const header = css({
@@ -81,7 +79,7 @@ export const header = css({
 
         _groupHover: {
             opacity: 0,
-        }
+        },
     },
 });
 
@@ -90,7 +88,7 @@ export const title = css({
     color: '#fff',
     fontSize: '19px',
     fontWeight: 'bold',
-    lineHeight: (21 / 18),
+    lineHeight: 21 / 18,
     opacity: 1,
     y: '0',
     transition: '200ms',
@@ -98,7 +96,7 @@ export const title = css({
     _groupHover: {
         opacity: 0,
         transform: 'translateY(30px)',
-    }
+    },
 });
 
 export const client = css({
@@ -113,5 +111,5 @@ export const client = css({
         opacity: 0,
         transform: 'translateY(30px)',
         transition: '200ms',
-    }
+    },
 });

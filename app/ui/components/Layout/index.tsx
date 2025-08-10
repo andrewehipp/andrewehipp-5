@@ -5,9 +5,9 @@ import { ContentVariants } from './styles';
 import Layer from '../Layer';
 
 export type LayoutProps = {
-    contentChildren: React.ReactNode,
-    sidebarChildren?: React.ReactNode,
-    contentProps?: ContentVariants,
+    contentChildren: React.ReactNode;
+    sidebarChildren?: React.ReactNode;
+    contentProps?: ContentVariants;
 };
 
 const Layout = ({
@@ -17,13 +17,9 @@ const Layout = ({
 }: LayoutProps) => {
     return (
         <div className={styles.layout}>
-            <div className={styles.aside}>
-                {sidebarChildren}
-            </div>
+            <div className={styles.aside}>{sidebarChildren}</div>
             <div className={styles.content(contentProps)}>
-                <Layer>
-                    {contentChildren}
-                </Layer>
+                <Layer>{contentChildren}</Layer>
             </div>
         </div>
     );

@@ -1,23 +1,23 @@
-"use client";
+'use client';
 
-import React from "react";
+import React from 'react';
 
-import { aspectRatio } from "@/styled-system/patterns";
-import { cx } from "@/styled-system/css";
-import imageLoaded from "@/app/lib/utilities/imageLoaded";
+import { aspectRatio } from '@/styled-system/patterns';
+import { cx } from '@/styled-system/css';
+import imageLoaded from '@/app/lib/utilities/imageLoaded';
 
-import * as styles from "./styles";
-import { HomePageQuery } from "@/__generated__/graphql";
+import * as styles from './styles';
+import { HomePageQuery } from '@/__generated__/graphql';
 
 export type CardProps = {
     delay?: number;
     project: NonNullable<
         NonNullable<
             NonNullable<
-                HomePageQuery["projectListingCollection"]
-            >["items"][number]
-        >["projectsCollection"]
-    >["items"][number];
+                HomePageQuery['projectListingCollection']
+            >['items'][number]
+        >['projectsCollection']
+    >['items'][number];
 };
 
 const Card = ({ project, delay = 0 }: CardProps) => {
@@ -26,8 +26,8 @@ const Card = ({ project, delay = 0 }: CardProps) => {
     React.useEffect(() => {
         const handleLoaded = async (entry: IntersectionObserverEntry) => {
             if (entry.intersectionRatio > 0) {
-                await imageLoaded(project?.fullThumbnail?.url || "");
-                entry.target.classList.add("is-loaded");
+                await imageLoaded(project?.fullThumbnail?.url || '');
+                entry.target.classList.add('is-loaded');
             }
         };
 
@@ -36,14 +36,14 @@ const Card = ({ project, delay = 0 }: CardProps) => {
         };
 
         const intersectionObserverOptions = {
-            rootMargin: "0px",
-            scrollMargin: "0px",
+            rootMargin: '0px',
+            scrollMargin: '0px',
             threshold: 1.0,
         };
 
         const observer = new IntersectionObserver(
             handleInView,
-            intersectionObserverOptions,
+            intersectionObserverOptions
         );
 
         if (card.current) {
@@ -69,7 +69,7 @@ const Card = ({ project, delay = 0 }: CardProps) => {
     });
 
     return (
-        <article ref={card} className={cx("group", styles.card)}>
+        <article ref={card} className={cx('group', styles.card)}>
             <div
                 className={styles.content}
                 style={{ transitionDelay: `${animationDelay}ms` }}
@@ -79,7 +79,7 @@ const Card = ({ project, delay = 0 }: CardProps) => {
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
                             src={project?.fullThumbnail?.url}
-                            alt={project?.name || ""}
+                            alt={project?.name || ''}
                             className={styles.image}
                             loading="lazy"
                         />

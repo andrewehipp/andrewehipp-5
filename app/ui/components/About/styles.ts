@@ -1,4 +1,4 @@
-import { css } from "@/styled-system/css";
+import { css } from '@/styled-system/css';
 
 export const title = css({
     clamp: '20px 40px',

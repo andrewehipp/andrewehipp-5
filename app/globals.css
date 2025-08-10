@@ -1,16 +1,15 @@
-
 @layer reset, base, tokens, recipes, utilities;
 
 /* import normalize and add to reset layer */
-@import "normalize.css" layer(reset);
+@import 'normalize.css' layer(reset);
 
 @layer reset {
     *,
     *::before,
     *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
     }
 }
 
@@ -47,7 +46,6 @@
         margin: 0 0 20px;
     }
 
-
     /**
     * Lists
     */
@@ -56,7 +54,6 @@
     dl {
         margin: 0 0 20px;
     }
-
 
     /**
     * Link Styles

@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import * as styles from "./styles";
+import * as styles from './styles';
 
 export type TextAppearProps = {
     children: React.ReactNode;
@@ -8,7 +8,9 @@ export type TextAppearProps = {
 };
 
 const TextAppear = ({ children, transition }: TextAppearProps) => (
-    <span className={styles.text} style={{ transition }}>{children}</span>
+    <span className={styles.text} style={{ transition }}>
+        {children}
+    </span>
 );
 
 export default TextAppear;

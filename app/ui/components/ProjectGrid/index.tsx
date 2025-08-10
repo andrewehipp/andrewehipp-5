@@ -4,10 +4,10 @@ import * as styles from './styles';
 import { LayoutItemVariants } from './styles';
 
 export type ProjectGridProps<P> = {
-    items: P[],
+    items: P[];
     renderItem: (item: P, index: number, items: P[]) => React.ReactNode;
-    layout?: Record<number, LayoutItemVariants>
-}
+    layout?: Record<number, LayoutItemVariants>;
+};
 
 const ProjectGrid = <P,>({
     items,

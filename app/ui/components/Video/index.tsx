@@ -2,18 +2,15 @@ import React from 'react';
 
 export type VideoProps = {
     children: React.ReactNode;
-} & React.ComponentPropsWithoutRef<'video'>
+} & React.ComponentPropsWithoutRef<'video'>;
 
-const Video = ({
-    children,
-    ...props
-}: VideoProps) => {
+const Video = ({ children, ...props }: VideoProps) => {
     const video = React.useRef<HTMLVideoElement>(null);
 
     React.useEffect(() => {
         const options = {
-            rootMargin: "0px",
-            scrollMargin: "0px",
+            rootMargin: '0px',
+            scrollMargin: '0px',
             threshold: 1.0,
         };
 
@@ -25,7 +22,7 @@ const Video = ({
                     (entry.target as HTMLVideoElement).pause();
                 }
             });
-        }
+        };
 
         const observer = new IntersectionObserver(handleInView, options);
 
@@ -43,6 +40,6 @@ const Video = ({
             {children}
         </video>
     );
-}
+};
 
 export default Video;

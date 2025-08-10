@@ -6,10 +6,15 @@ import rehypeRaw from 'rehype-raw';
 
 export interface MarkdownProps
     extends Options,
-        Omit<React.ComponentPropsWithoutRef<'div'>, 'children'> {
-}
+        Omit<React.ComponentPropsWithoutRef<'div'>, 'children'> {}
 
-const LinkRenderer = ({ href = '', children, target, rel, ...props }: React.ComponentPropsWithoutRef<'a'>) => {
+const LinkRenderer = ({
+    href = '',
+    children,
+    target,
+    rel,
+    ...props
+}: React.ComponentPropsWithoutRef<'a'>) => {
     return (
         <Link href={href} target={target} rel={rel} {...props}>
             {children}
@@ -22,20 +27,19 @@ const Markdown: React.FC<MarkdownProps> = ({
     components = {},
     ...props
 }) => {
-
     return (
         <ReactMarkdown
-        remarkPlugins={[gfm]}
-        rehypePlugins={[rehypeRaw]}
-        components={{
-            ...components,
-            a: LinkRenderer,
-        }}
-        {...props}
-    >
-        {children}
-    </ReactMarkdown>
-)
+            remarkPlugins={[gfm]}
+            rehypePlugins={[rehypeRaw]}
+            components={{
+                ...components,
+                a: LinkRenderer,
+            }}
+            {...props}
+        >
+            {children}
+        </ReactMarkdown>
+    );
 };
 
 export default Markdown;

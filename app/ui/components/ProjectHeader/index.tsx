@@ -1,18 +1,15 @@
 import React from 'react';
 
 // import Canvas from '../Canvas';
-import * as styles from "./styles";
+import * as styles from './styles';
 import TextSlideIn from '../TextSlideIn';
 
 export type ProjectHeaderProps = {
     name?: string;
     client?: string;
-}
+};
 
-const ProjectHeader = ({
-    name,
-    client,
-}: ProjectHeaderProps) => (
+const ProjectHeader = ({ name, client }: ProjectHeaderProps) => (
     <header className={styles.header}>
         <TextSlideIn transition="300ms">
             <h1 className={styles.title}>{name}</h1>
@@ -22,6 +19,5 @@ const ProjectHeader = ({
         </TextSlideIn>
     </header>
 );
-
 
 export default ProjectHeader;

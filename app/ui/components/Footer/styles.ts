@@ -1,4 +1,4 @@
-import { css } from "@/styled-system/css";
+import { css } from '@/styled-system/css';
 
 export const footer = css({
     overflow: 'hidden',
@@ -24,8 +24,8 @@ export const footer = css({
                 100% 101%,
                 0 101%
             );
-        `
-    }
+        `,
+    },
 });
 
 export const canvas = css({
@@ -43,5 +43,5 @@ export const canvas = css({
             100% 100%,
             0 100%
         );
-    `
+    `,
 });

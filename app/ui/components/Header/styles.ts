@@ -1,9 +1,9 @@
-import { css } from '@/styled-system/css'
+import { css } from '@/styled-system/css';
 import { hstack } from '@/styled-system/patterns';
 
 export const header = css({
     overflow: 'hidden',
-    p: { base: '30px 0 25px', sm: '10px 0'},
+    p: { base: '30px 0 25px', sm: '10px 0' },
     mb: '30px',
     color: 'black',
     textShadow: '1px 1px #fff',
@@ -26,21 +26,18 @@ export const header = css({
         top: 0,
         left: 0,
         zIndex: 1,
-    }
-})
-
+    },
+});
 
 export const content = css({
-    py: { base: '10px', sm: '3vmin'},
+    py: { base: '10px', sm: '3vmin' },
 });
 
 export const lockup = hstack({
-    gap: '20px'
+    gap: '20px',
 });
 
-export const lockupBlock = css({
-
-});
+export const lockupBlock = css({});
 
 export const logo = css({
     display: 'block',
@@ -50,7 +47,7 @@ export const logo = css({
     transition: 'scale 0.2s',
     _hover: {
         scale: 1.1,
-    }
+    },
 });
 
 export const name = css({
@@ -75,5 +72,5 @@ export const canvas = css({
         100% 0,
         100% calc(100% - var(--canvas-bottom-right-offset-y)),
         0 100%
-    );`
-})
+    );`,
+});

@@ -1,4 +1,8 @@
+
 @layer reset, base, tokens, recipes, utilities;
+
+/* import normalize and add to reset layer */
+@import "normalize.css" layer(reset);
 
 @layer reset {
     *,

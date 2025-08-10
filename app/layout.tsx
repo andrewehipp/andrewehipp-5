@@ -1,3 +1,4 @@
+import 'normalize.css/normalize.css';
 import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";

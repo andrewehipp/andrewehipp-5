@@ -11,12 +11,6 @@ const config: CodegenConfig = {
     generates: {
         "./__generated__/": {
             preset: "client",
-            // presetConfig: {
-            //     gqlTagName: "gql",
-            // },
-            // plugins: [
-            //     "typescript",
-            // ],
         },
     },
 };

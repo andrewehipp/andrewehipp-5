@@ -9,7 +9,7 @@ const config: CodegenConfig = {
     schema: uri,
     documents: ['app/**/*.ts'],
     generates: {
-        "./__generated__/": {
+        './__generated__/': {
             preset: 'client',
         },
     },
